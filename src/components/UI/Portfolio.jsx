@@ -12,7 +12,7 @@ const INFO = {
   name: "Gauri Shrotria",
   tagline: "Aspiring Software Engineer | Web Development & React Enthusiast",
   about:
-    "Enthusiastic and detail-oriented aspiring Software Developer with hands-on knowledge of Python,Java , HTML, CSS, JavaScript, Node.js and React.js. Passionate about building responsive and user-friendly web applications. Seeking an entry-level role to contribute to real-world projects, grow under the guidance of experienced professionals, and continuously learn in a dynamic, innovation-driven environment.",
+    " I am a software developer with a strong interest in building clean, responsive, and user-friendly web applications. I’ve gained hands-on experience working with Python, Java, HTML, CSS, JavaScript, Node.js, and React.js, and I enjoy using these skills to bring ideas into reality.I can contribute to meaningful projects, learn from experienced mentors, and continue growing as a developer in a fast-paced, innovative environment.",
   location: "Greater Noida, Uttar Pradesh, India",
   email: "gaurishrotria@gmail.com",
   phone: "+91 9675368856",
