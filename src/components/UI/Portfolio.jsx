@@ -2,17 +2,17 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, ExternalLink, MapPin, Download, Phone, CircleUserRound, Code2, Briefcase, GraduationCap, Sparkles } from "lucide-react";
+import { Github, Linkedin, Mail, ExternalLink, MapPin, Phone, CircleUserRound, Code2, Briefcase, GraduationCap, Sparkles, Trophy } from "lucide-react";
 import { Card, CardContent } from "./card";
 import { Button } from "./button";
 import { Badge } from "./badge";
 
-// ====== YOUR CV DATA ======
+// ====== YOUR CV DATA (matched to resume) ======
 const INFO = {
   name: "Gauri Shrotria",
-  tagline: "Aspiring Software Engineer | Web Development & React Enthusiast",
+  tagline: "Computer Science Undergraduate | AI/ML & Software Developer",
   about:
-    " I am a software developer with a strong interest in building clean, responsive, and user-friendly web applications. I’ve gained hands-on experience working with Python, Java, HTML, CSS, JavaScript, Node.js, and React.js, and I enjoy using these skills to bring ideas into reality.I can contribute to meaningful projects, learn from experienced mentors, and continue growing as a developer in a fast-paced, innovative environment.",
+    "Computer Science undergraduate targeting AI/ML and Software Developer roles. I've built an agentic expense assistant using Gemini tool calling with vision-based bill extraction, a CNN-based emotion recognition model with TensorFlow, and responsive client websites with WordPress and custom CSS. I'm comfortable turning requirements into clean, working products.",
   location: "Greater Noida, Uttar Pradesh, India",
   email: "gaurishrotria@gmail.com",
   phone: "+91 9675368856",
@@ -23,54 +23,101 @@ const INFO = {
   },
 };
 
-const SKILLS = [
-  "HTML", "CSS", "JavaScript", "React.js",
-  "Java", "Python", "SQL", "MySQL",
-  "Git/GitHub", "Time Management", "Teamwork", "Creativity", "Adaptability"
-];
+const SKILLS = {
+  Languages: ["JavaScript", "Python", "SQL", "Java (academic level)"],
+  "Web Development": ["HTML", "CSS", "React.js", "WordPress", "Elementor", "Streamlit"],
+  Databases: ["MySQL", "PostgreSQL", "SQLite"],
+  "Data & ML": ["Power BI", "DAX", "Pandas", "NumPy", "TensorFlow", "Keras", "scikit-learn", "Gemini API (LLM tool calling)"],
+  Tools: ["Git", "GitHub", "Docker", "Figma", "Google Colab"],
+  "Core CS": ["DSA", "OOP", "DBMS", "Operating Systems", "Computer Networks"],
+};
 
 const PROJECTS = [
   {
-    title: "Meditation & Mindfulness App",
+    title: "Expense & Bill AI Agent",
     description:
-      "Responsive web app promoting mental wellness with categorized meditation types and external practice links. Integrated user login and registration using MySQL to store credentials and preferences. Designed a calming UI with smooth navigation for an immersive user experience.",
-    tech: ["React", "HTML", "CSS", "MySQL"],
-    repo: "https://github.com/Gauri01-31/MeditationApp.git",
+      "Agentic expense assistant built with the Gemini API and tool calling: the model selects and chains 8 tools (add expense, spending summaries, budgets, due dates, reminders) to answer natural-language requests. Extracts receipts and bills (images and PDFs) into structured fields with a confidence score, with human review before saving and duplicate detection. Data stored in SQLite, with proactive alerts for overdue bills and budgets above 80%. Deployed online as a Streamlit app.",
+    tech: ["Python", "Gemini API", "Streamlit", "SQLite"],
+    repo: "https://github.com/Gauri01-31/expense-agent",
+    demo: "https://expense-agent-gwmsfsk6vmh8xvhhpcmxou.streamlit.app/",
+    demoLabel: "Live demo",
+  },
+  {
+    title: "Ecommerce Blinkit Sales Dashboard",
+    description:
+      "Interactive Power BI dashboard analyzing sales, revenue, product categories, outlet performance and customer trends. Wrote DAX measures to turn raw data into insights.",
+    tech: ["Power BI", "DAX"],
+    repo: "https://github.com/Gauri01-31/Ecommerce-Blinkit-Sales-Dashboard",
     demo: "",
   },
   {
-    title: "Student–Teacher Portal (Group Project)",
+    title: "Facial Emotion Recognition",
     description:
-      "Developed a web-based portal to streamline communication and data management between students and teachers. Designed and implemented a relational database schema to store student records, attendance, grades, assignments, and schedules.",
-    tech: ["React", "MySQL", "JavaScript"],
-    demo: "",
+      "CNN built with TensorFlow and Keras to classify facial emotions, reaching about 93% test accuracy. Improved performance with image preprocessing and data augmentation, and evaluated on a held-out test set in Google Colab.",
+    tech: ["Python", "TensorFlow", "Keras", "CNN", "Google Colab"],
+    repo: "", // ADD: GitHub repo URL if you have one
+    demo: "https://colab.research.google.com/drive/1tY9jI4dA2sdCM0w3LUbhMcutj2hX9UbK",
+    demoLabel: "Colab notebook",
   },
 ];
 
 const EXPERIENCE = [
   {
-    role: "Android Developer Intern (Virtual)",
-    company: "Google",
-    period: "Oct – Dec 2024",
+    role: "Web Developer Intern (WordPress)",
+    company: "ReadyCoder",
+    period: "Jun 2026 – Sep 2026",
+    link: "https://www.linkedin.com/feed/update/urn:li:activity:7513535388553101314",
+    linkLabel: "LinkedIn post",
     bullets: [
-      "Completed a virtual internship focused on Android development.",
-      "Built Android app modules using Java and XML, and learned Firebase integration for authentication and data storage.",
+      "Built and maintained responsive websites for business and legal-service clients using WordPress, Elementor, custom CSS, themes, and plugins.",
+      "Created reusable components and a consistent design system across 15+ service pages, improving mobile responsiveness and layout consistency.",
+      "Implemented client requirements across desktop and mobile, improving page layouts, usability, and SEO-friendly content structure.",
+    ],
+  },
+  {
+    role: "AI-ML Virtual Internship",
+    company: "Google",
+    period: "Jul 2025 – Sep 2025",
+    link: "https://drive.google.com/file/d/1dZPiREd7VmvsM4eK2TqOWTecM3mpSazr/view?usp=drivesdk",
+    linkLabel: "View certificate",
+    bullets: [
+      "Built and evaluated machine learning models in Python using TensorFlow and scikit-learn.",
+      "Handled data preprocessing, training, testing, and evaluation, and compared model performance.",
     ],
   },
 ];
 
 const EDUCATION = [
   {
-    degree: "B.Tech in Computer Engineering",
-    school: "Galgotias University, Greater Noida, UP",
-    period: "2023 – 2027 (expected)",
-    bullets: ["CGPA: 8.24", "Relevant coursework: DSA, DBMS, OS, CN, Web Development"],
+    degree: "B.Tech in Computer Science and Engineering",
+    school: "Galgotias University, Greater Noida",
+    period: "2023 – 2027",
+    bullets: ["CGPA: 8.52/10", "Core CS: DSA, OOP, DBMS, Operating Systems, Computer Networks"],
   },
   {
-    degree: "Senior Secondary (Class XII)",
-    school: "Dewan Public School, Meerut, UP",
+    degree: "Senior Secondary Education (PCM)",
+    school: "Dewan Public School",
     period: "2021 – 2022",
-    bullets: ["PCM with Computer Science"],
+    bullets: ["77.6%"],
+  },
+  {
+    degree: "Secondary Education",
+    school: "Dewan Public School",
+    period: "2019 – 2020",
+    bullets: ["82.3%"],
+  },
+];
+
+const ACHIEVEMENTS = [
+  {
+    title: "Data Science with Python",
+    detail: "Wipro TalentNext · Jul–Oct 2026 · ID: TNext-SE-2026-DS 260680302",
+    link: "https://drive.google.com/file/d/1TNIBJb4d3Z0UVIMVfnRP3xqnUx27k0Ol/view?usp=sharing",
+  },
+  {
+    title: "4th Place",
+    detail: "IEEE IC2PCT 2026 Competition · 2026",
+    link: "", // ADD (optional): certificate, result page or photo link
   },
 ];
 
@@ -112,6 +159,7 @@ export default function Portfolio() {
             <a href="#projects" className="hover:underline">Projects</a>
             <a href="#experience" className="hover:underline">Experience</a>
             <a href="#education" className="hover:underline">Education</a>
+            <a href="#achievements" className="hover:underline">Achievements</a>
             <a href="#contact" className="hover:underline">Contact</a>
           </nav>
         </div>
@@ -137,53 +185,50 @@ export default function Portfolio() {
                 <a href={INFO.socials.linkedin} target="_blank" rel="noreferrer"><Linkedin className="mr-2 h-4 w-4"/> LinkedIn</a>
               </Button>
               <Button asChild variant="outline" className="rounded-2xl">
-              <a href={INFO.socials.leetcode} target="_blank" rel="noreferrer">
-                <Code2 className="mr-2 h-4 w-4"/> LeetCode
-              </a>
+                <a href={INFO.socials.leetcode} target="_blank" rel="noreferrer"><Code2 className="mr-2 h-4 w-4"/> LeetCode</a>
               </Button>
             </div>
             <div className="mt-6 flex flex-wrap gap-4 text-sm text-slate-600">
               <span className="inline-flex items-center gap-1"><MapPin className="h-4 w-4"/>{INFO.location}</span>
             </div>
           </motion.div>
-          
+
           <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="lg:justify-self-centre"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="lg:justify-self-center"
           >
-          <Card className="rounded-2xl shadow-md relative max-w-xs mx-auto overflow-hidden">
-            <CardContent className="p-4 flex flex-col items-center">
-              
-              {/* Profile Image */}
-              <div className="w-52 h-52 rounded-full overflow-hidden mb-4 relative">
-                <Image
-                  src="/my-photo.jpeg"
-                  alt="Gauri Shrotria"
-                  width={208}   // width = 48 * 4
-                  height={208}  // height = 32 * 4
-                  className="object-cover object-right"
-                />
-              </div>
+            <Card className="rounded-2xl shadow-md relative max-w-xs mx-auto overflow-hidden">
+              <CardContent className="p-4 flex flex-col items-center">
+                {/* Profile Image */}
+                <div className="w-52 h-52 rounded-full overflow-hidden mb-4 relative">
+                  <Image
+                    src="/my-photo.jpeg"
+                    alt="Gauri Shrotria"
+                    width={208}
+                    height={208}
+                    className="object-cover object-right"
+                  />
+                </div>
 
-              {/* Short Info */}
-              <p className="text-slate-600 text-lg text-center">
-                Python / Java • Developer 
-              </p>
+                {/* Short Info */}
+                <p className="text-slate-600 text-lg text-center">
+                  AI/ML & Software Developer
+                </p>
 
-              {/* Contact Info */}
-              <div className="mt-4 grid gap-2 text-sm text-center">
-                <a className="inline-flex items-center justify-center gap-2 hover:underline" href={`mailto:${INFO.email}`}>
-                  <Mail className="h-4 w-4"/> {INFO.email}
-                </a>
-                <a className="inline-flex items-center justify-center gap-2 hover:underline" href={`tel:${INFO.phone}`}>
-                  <Phone className="h-4 w-4"/> {INFO.phone}
-                </a>
-              </div>
-            </CardContent>
-          </Card>
-        </motion.div>
+                {/* Contact Info */}
+                <div className="mt-4 grid gap-2 text-sm text-center">
+                  <a className="inline-flex items-center justify-center gap-2 hover:underline" href={`mailto:${INFO.email}`}>
+                    <Mail className="h-4 w-4"/> {INFO.email}
+                  </a>
+                  <a className="inline-flex items-center justify-center gap-2 hover:underline" href={`tel:${INFO.phone}`}>
+                    <Phone className="h-4 w-4"/> {INFO.phone}
+                  </a>
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
         </section>
 
         {/* ABOUT */}
@@ -198,12 +243,17 @@ export default function Portfolio() {
         {/* SKILLS */}
         <Section id="skills" icon={Code2} title="Skills">
           <Card className="rounded-3xl">
-            <CardContent className="p-6">
-              <div className="flex flex-wrap">
-                {SKILLS.map((s) => (
-                  <Chip key={s}>{s}</Chip>
-                ))}
-              </div>
+            <CardContent className="p-6 space-y-4">
+              {Object.entries(SKILLS).map(([group, items]) => (
+                <div key={group}>
+                  <h3 className="mb-2 text-sm font-semibold text-slate-700">{group}</h3>
+                  <div className="flex flex-wrap">
+                    {items.map((s) => (
+                      <Chip key={s}>{s}</Chip>
+                    ))}
+                  </div>
+                </div>
+              ))}
             </CardContent>
           </Card>
         </Section>
@@ -229,7 +279,7 @@ export default function Portfolio() {
                     )}
                     {p.demo && (
                       <Button asChild size="sm" className="rounded-2xl">
-                        <a href={p.demo} target="_blank" rel="noreferrer"><ExternalLink className="mr-2 h-4 w-4"/> Live</a>
+                        <a href={p.demo} target="_blank" rel="noreferrer"><ExternalLink className="mr-2 h-4 w-4"/> {p.demoLabel || "Live"}</a>
                       </Button>
                     )}
                   </div>
@@ -254,6 +304,11 @@ export default function Portfolio() {
                       <li key={i}>{b}</li>
                     ))}
                   </ul>
+                  {e.link && (
+                    <Button asChild size="sm" variant="outline" className="mt-4 rounded-2xl">
+                      <a href={e.link} target="_blank" rel="noreferrer"><ExternalLink className="mr-2 h-4 w-4"/> {e.linkLabel || "View certificate"}</a>
+                    </Button>
+                  )}
                 </CardContent>
               </Card>
             ))}
@@ -264,7 +319,7 @@ export default function Portfolio() {
         <Section id="education" icon={GraduationCap} title="Education">
           <div className="grid gap-6">
             {EDUCATION.map((ed) => (
-              <Card key={ed.school} className="rounded-3xl">
+              <Card key={ed.degree} className="rounded-3xl">
                 <CardContent className="p-6">
                   <div className="flex flex-wrap items-baseline justify-between gap-2">
                     <h3 className="text-lg font-semibold">{ed.degree}</h3>
@@ -276,6 +331,25 @@ export default function Portfolio() {
                       <li key={i}>{b}</li>
                     ))}
                   </ul>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </Section>
+
+        {/* ACHIEVEMENTS */}
+        <Section id="achievements" icon={Trophy} title="Achievements & Certifications">
+          <div className="grid sm:grid-cols-2 gap-6">
+            {ACHIEVEMENTS.map((a) => (
+              <Card key={a.title} className="rounded-3xl">
+                <CardContent className="p-6">
+                  <h3 className="text-lg font-semibold">{a.title}</h3>
+                  <p className="mt-1 text-slate-700">{a.detail}</p>
+                  {a.link && (
+                    <Button asChild size="sm" variant="outline" className="mt-3 rounded-2xl">
+                      <a href={a.link} target="_blank" rel="noreferrer"><ExternalLink className="mr-2 h-4 w-4"/> View certificate</a>
+                    </Button>
+                  )}
                 </CardContent>
               </Card>
             ))}
